@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>開発実績ポートフォリオ — EC・業務システム・AI</title>
-<meta name="description" content="越境 EC サイト、FC 本部・営業組織の業務システム、会員管理アプリ、3D 内見ビューア、AI 肌診断など 9 件の開発実績。企画・設計・実装・デプロイ・運用まで単独で担当。">
+<meta name="description" content="越境 EC サイト、FC 本部・営業組織の業務システム、会員管理アプリ、3D 内見ビューア、AI エージェントなど 8 件の開発実績。企画・設計・実装・デプロイ・運用まで単独で担当。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="開発実績ポートフォリオ — EC・業務システム・AI">
-<meta property="og:description" content="EC サイトから社内業務システム、AI プロダクトまで。企画から運用まで一人で形にした 9 件の実績。">
+<meta property="og:description" content="EC サイトから社内業務システム、AI プロダクトまで。企画から運用まで一人で形にした 8 件の実績。">
 <meta property="og:url" content="https://ken1055.github.io/portfolio/">
 <meta property="og:image" content="https://ken1055.github.io/portfolio/assets/esim.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -241,8 +241,8 @@
     <span class="eyebrow">Portfolio</span>
     <h1>EC サイトも、社内システムも。<br><em>企画から運用まで、一人で形にします。</em></h1>
     <p class="sub">
-      直近 1 年半で、越境 EC サイト・FC 本部の業務システム・営業組織の代理店管理・会員アプリ・3D 内見・AI 肌診断など
-      9 件のプロダクトを、要件整理から設計・実装・デプロイ・運用まで単独で担当してきました。
+      直近 1 年半で、越境 EC サイト・FC 本部の業務システム・営業組織の代理店管理・会員アプリ・3D 内見・AI エージェントなど
+      8 件のプロダクトを、要件整理から設計・実装・デプロイ・運用まで単独で担当してきました。
       AI 開発ツールを本格活用し、少人数・短期間で「実際に使われるシステム」を届けることを得意としています。
     </p>
     <div class="tags">
@@ -250,7 +250,7 @@
       <span class="tag">店舗・売上・顧客管理</span>
       <span class="tag">会員管理 / CRM</span>
       <span class="tag">LINE 連携</span>
-      <span class="tag">AI・画像解析</span>
+      <span class="tag">生成 AI・エージェント</span>
       <span class="tag">3D / WebGL</span>
       <span class="tag">クラウド運用</span>
     </div>
@@ -261,9 +261,9 @@
     </div>
 
     <div class="stats">
-      <div class="stat"><b>9 件</b><span>単独で設計〜公開まで担当した<br>プロダクト</span></div>
+      <div class="stat"><b>8 件</b><span>単独で設計〜公開まで担当した<br>プロダクト</span></div>
       <div class="stat"><b>800+</b><span>コミット数（全プロジェクト合計）</span></div>
-      <div class="stat"><b>約 9.5 万行</b><span>自作コード量（フロント・サーバー・<br>DB・ツール含む）</span></div>
+      <div class="stat"><b>約 8 万行</b><span>自作コード量（フロント・サーバー・<br>DB・ツール含む）</span></div>
       <div class="stat"><b>7 種</b><span>デプロイ経験のあるクラウド基盤<br>（Vercel / Railway / Render / Cloudflare 他）</span></div>
     </div>
   </div>
@@ -311,9 +311,9 @@
         <ul>
           <li>AI エージェントによる SNS 動画企画・台本の自動生成</li>
           <li>GA4・自前ビーコンでの流入元別の閲覧計測、QR・OGP 配信</li>
-          <li>画像解析 AI によるパーソナライズ提案（肌診断 → 商品提案）</li>
+          <li>画像認識 API による写真からの台帳照合（棚卸し型ツール）</li>
         </ul>
-        <div class="ref">→ TikTok 企画 AI / VR 内見 / AIMY</div>
+        <div class="ref">→ TikTok 企画 AI / VR 内見 / 本スキャナー</div>
       </div>
     </div>
   </div>
@@ -463,29 +463,6 @@
       </div>
     </article>
 
-    <!-- 6. AIMY -->
-    <article class="work flip">
-      <div class="media">
-        <img src="assets/aimy.jpg" alt="AIMY 肌診断のトップページ" loading="lazy">
-      </div>
-      <div>
-        <div class="kind">AI / 画像解析 / 美容</div>
-        <h3>AIMY — AI 肌診断とパーソナライズ提案</h3>
-        <div class="meta"><span><b>期間</b> 2026.06</span><span><b>規模</b> 約 13,800 行（解析 7 種）</span><span><b>体制</b> 単独</span></div>
-        <p>スマホで撮った顔写真から、シミ・シワ・毛穴・キメ・赤みを解析して可視化し、将来の肌変化シミュレーションと化粧品・施術の提案レポートを生成する Web アプリ。
-        美容医療の高額な診断機器に近い見せ方をブラウザだけで実現することを狙いました。</p>
-        <ul>
-          <li><b>画像解析:</b> MediaPipe の顔ランドマークで肌領域を抽出し、OpenCV と scikit-image でシミ（Hessian ブロブ検出・3 段階分類）、毛穴（モルフォロジー）、シワ、キメ、赤み、エイジングの 7 つの解析 API を実装</li>
-          <li><b>見せ方:</b> 業務用診断機器に近いトーンマッピング表現を独自に再現。検出マーカーを描くのではなく自然に強調する方式</li>
-          <li><b>生成 AI:</b> Gemini API で悩み別のレポート文と化粧品レコメンドを生成。投資家向けピッチページも同梱</li>
-          <li><b>基盤:</b> Flask + gunicorn でクラウドにデプロイ可能、ローカル開発サーバーも同梱</li>
-        </ul>
-        <div class="stack"><span>Python / Flask</span><span>OpenCV</span><span>MediaPipe</span><span>scikit-image</span><span>Gemini API</span><span>Render / Railway</span></div>
-        <div class="fit"><b>アパレル事業への応用:</b> 写真からの診断 → 商品提案という流れは、パーソナルカラー診断や体型に合わせたコーディネート提案に置き換えられます。</div>
-        <div class="links"><a class="btn small" href="https://github.com/ken1055/AIMY" target="_blank" rel="noopener">ソースコード</a></div>
-      </div>
-    </article>
-
     <!-- 7. TikTok agent -->
     <article class="work">
       <div class="media">
@@ -546,10 +523,10 @@
         <thead><tr><th>領域</th><th>技術</th><th>使用した案件</th></tr></thead>
         <tbody>
           <tr><td>フロントエンド</td><td>React / Next.js / TypeScript / Tailwind CSS / Vite（PWA）/ EJS / HTML・CSS・JavaScript</td><td>Truss、TikTok 企画 AI、LINE Bot、FC・代理店管理、eSIM、VR 内見</td></tr>
-          <tr><td>バックエンド</td><td>Node.js（Express）/ PHP / Python（Flask）/ Cloudflare Workers / Next.js API Routes</td><td>FC・代理店管理、eSIM、AIMY、VR 内見、TikTok 企画 AI</td></tr>
+          <tr><td>バックエンド</td><td>Node.js（Express）/ PHP / Python（Flask）/ Cloudflare Workers / Next.js API Routes</td><td>FC・代理店管理、eSIM、本スキャナー、VR 内見、TikTok 企画 AI</td></tr>
           <tr><td>データベース</td><td>PostgreSQL（Supabase、Railway）/ SQLite / Cloudflare D1 / MySQL 移行 / 行レベルセキュリティ設計</td><td>FC・代理店管理、Truss、VR 内見</td></tr>
           <tr><td>決済・外部連携</td><td>Stripe Checkout・Webhook / LINE Messaging API / SMTP メール / Google OAuth / Google スプレッドシート（Apps Script）</td><td>eSIM、LINE Bot、FC・代理店管理、Truss、VR 内見</td></tr>
-          <tr><td>AI・画像</td><td>Claude API（Tool Use）/ Gemini API / Google Cloud Vision / OpenCV / MediaPipe / scikit-image / WebGL・3D Gaussian Splatting</td><td>TikTok 企画 AI、AIMY、本スキャナー、VR 内見</td></tr>
+          <tr><td>AI・画像</td><td>Claude API（Tool Use）/ Google Cloud Vision / WebGL・3D Gaussian Splatting</td><td>TikTok 企画 AI、本スキャナー、VR 内見</td></tr>
           <tr><td>インフラ・運用</td><td>Vercel / Railway / Render / Cloudflare / Google Cloud Storage / GitHub Pages / レンタルサーバー（Xserver 等）/ GA4</td><td>全案件</td></tr>
           <tr><td>帳票・ドキュメント</td><td>PDF 生成（日本語フォント埋め込み）/ CSV エクスポート / 運用手順書・設計書の整備</td><td>FC 管理（16 本の運用ドキュメント）、VR 内見</td></tr>
           <tr><td>開発体制</td><td>Git による履歴管理 / Playwright による画面確認 / AI 開発ツール（Claude Code 等）を活用した高速開発</td><td>全案件</td></tr>
@@ -574,7 +551,7 @@
     <div class="grid" style="margin-top:20px">
       <div class="card">
         <h3>少人数でも止まらない体制</h3>
-        <p>9 件すべてを一人で設計から運用まで回してきました。AI 開発ツールを本格活用することで、従来なら数名のチームが必要な規模を、短期間・低コストで形にできます。</p>
+        <p>8 件すべてを一人で設計から運用まで回してきました。AI 開発ツールを本格活用することで、従来なら数名のチームが必要な規模を、短期間・低コストで形にできます。</p>
       </div>
       <div class="card">
         <h3>数字で判断する</h3>
@@ -618,7 +595,7 @@
         <h3><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg></span>集客・販促・AI 活用</h3>
         <ul>
           <li>SNS 投稿企画・台本の AI 生成（実績あり）</li>
-          <li>写真からのパーソナライズ提案（コーデ・カラー診断）</li>
+          <li>商品写真・在庫表の画像認識による登録・照合の省力化</li>
           <li>QR・OGP・GA4 による店舗とオンラインの流入計測（実績あり）</li>
           <li>店舗・ショールームの 3D 公開（実績あり）</li>
         </ul>
@@ -637,7 +614,7 @@
       <div class="tl"><time>2025.07 〜 10</time><h3>FC 店舗管理システム</h3><p>代理店管理を発展させ、顧客管理・ロイヤリティ自動計算・請求書 PDF を追加。320 コミット、Supabase へ全面移行。</p></div>
       <div class="tl"><time>2025.09 〜 2026.03</time><h3>Truss 会員アプリ（2 世代）</h3><p>Next.js 版でマッチング機能を実装後、Figma デザインを起点に React PWA として全面刷新。管理ダッシュボードと本番移行まで。</p></div>
       <div class="tl"><time>2026.03 〜 06</time><h3>Get Japan eSIM（EC）</h3><p>越境 EC サイトを 204 コミットで構築。多言語・多通貨、Stripe 決済、購入後ポータルまで。</p></div>
-      <div class="tl"><time>2026.05 〜 06</time><h3>TikTok 企画 AI / AIMY 肌診断</h3><p>Claude API のマルチエージェントと、OpenCV・MediaPipe・Gemini による画像解析プロダクトを相次いで制作。</p></div>
+      <div class="tl"><time>2026.05</time><h3>TikTok 企画 AI エージェント</h3><p>Claude API の Tool Use で 5 つのエージェントが分業する企画・台本生成ツールを制作。</p></div>
       <div class="tl"><time>2026.06 〜 現在</time><h3>VR 内見ビューア</h3><p>3D Gaussian Splatting の内見プラットフォームを運用中。Cloudflare Workers による物件レジストリと計測基盤を追加。</p></div>
     </div>
   </div>
