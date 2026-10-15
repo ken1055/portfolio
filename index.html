@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>開発実績ポートフォリオ — EC・業務システム・AI</title>
+<meta name="description" content="越境 EC サイト、FC 本部・営業組織の業務システム、会員管理アプリ、3D 内見ビューア、AI 肌診断など 9 件の開発実績。企画・設計・実装・デプロイ・運用まで単独で担当。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="開発実績ポートフォリオ — EC・業務システム・AI">
+<meta property="og:description" content="EC サイトから社内業務システム、AI プロダクトまで。企画から運用まで一人で形にした 9 件の実績。">
+<meta property="og:url" content="https://ken1055.github.io/portfolio/">
+<meta property="og:image" content="https://ken1055.github.io/portfolio/assets/esim.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root {
+    --bg: #0c1120;
+    --bg-2: #121a30;
+    --card: #151f3a;
+    --line: #26375c;
+    --text: #e9eef8;
+    --muted: #9fadcb;
+    --accent: #ffb547;
+    --accent-2: #7cc4ff;
+    --accent-3: #2ee6b8;
+    --accent-ink: #1d1300;
+    --grid: rgba(255, 181, 71, 0.06);
+    --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f7f8fc;
+      --bg-2: #ffffff;
+      --card: #ffffff;
+      --line: #dde3f0;
+      --text: #151b2d;
+      --muted: #5c6886;
+      --accent: #d97b06;
+      --accent-2: #2a6fd6;
+      --accent-3: #0f9f7e;
+      --accent-ink: #ffffff;
+      --grid: rgba(217, 123, 6, 0.07);
+      --shadow: 0 12px 32px rgba(21, 27, 45, 0.08);
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0.05em 0.4em;
+  }
+  img { max-width: 100%; display: block; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  section { padding: 64px 0; }
+  section + section { border-top: 1px solid var(--line); }
+  h2 { font-size: 1.65rem; letter-spacing: 0.02em; margin-bottom: 8px; }
+  .lead { color: var(--muted); margin-bottom: 32px; max-width: 760px; }
+  .eyebrow {
+    display: inline-block; font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+  }
+
+  /* nav */
+  nav {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
+  nav .brand { font-weight: 700; color: var(--text); white-space: nowrap; }
+  nav .brand span { color: var(--accent); }
+  nav ul { display: flex; gap: 20px; list-style: none; overflow-x: auto; }
+  nav li a { color: var(--muted); font-size: 0.9rem; white-space: nowrap; }
+  nav li a:hover { color: var(--text); text-decoration: none; }
+
+  /* hero */
+  .hero {
+    position: relative; padding: 84px 0 64px;
+    background:
+      linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 48px 48px,
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 48px 48px,
+      radial-gradient(900px 420px at 15% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%),
+      var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero h1 { font-size: clamp(1.9rem, 4.6vw, 3rem); line-height: 1.25; margin: 8px 0 16px; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p.sub { font-size: 1.08rem; color: var(--muted); max-width: 700px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 28px; }
+  .tag { font-size: 0.8rem; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--bg-2); }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 10px;
+    font-weight: 700; border: 1px solid var(--line); background: var(--bg-2); color: var(--text);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); box-shadow: var(--shadow); }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+  .btn.small { padding: 8px 14px; font-size: 0.88rem; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 44px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .stat b { display: block; font-size: 1.7rem; line-height: 1.1; color: var(--accent); }
+  .stat span { font-size: 0.85rem; color: var(--muted); }
+
+  /* cards */
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .card h3 { font-size: 1.05rem; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+  .card p { color: var(--muted); font-size: 0.95rem; }
+  .card ul { padding-left: 1.2em; color: var(--muted); font-size: 0.93rem; }
+  .card li + li { margin-top: 4px; }
+  .card .ref { margin-top: 10px; font-size: 0.82rem; color: var(--accent-3); font-weight: 700; }
+  .icon {
+    flex: none; width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center;
+    background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent);
+  }
+  .icon svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* works */
+  .work {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+    padding: 28px; margin-bottom: 20px; overflow: hidden;
+  }
+  .work.flip .media { order: 2; }
+  .work .media { display: grid; gap: 10px; align-content: start; }
+  .work .media img, .work .media .ph {
+    width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--bg-2);
+  }
+  .work > div { min-width: 0; }
+  .work .media .ph {
+    min-height: 280px; display: grid; place-items: center; padding: 24px 20px; text-align: center;
+    color: var(--muted); font-size: 0.9rem;
+    background:
+      linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 24px 24px,
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 24px 24px, var(--bg-2);
+  }
+  .work .media .ph b { display: block; color: var(--text); font-size: 1.25rem; margin-bottom: 4px; }
+  .work .media .ph .mini { font-size: 0.8rem; opacity: 0.8; margin-top: 8px; line-height: 1.5; }
+  .work .media .ph .kv { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 10px; }
+  .work .media .ph .kv span { font-size: 0.72rem; border: 1px solid var(--line); border-radius: 999px; padding: 2px 8px; }
+  .work .kind { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; color: var(--accent-3); }
+  .work h3 { font-size: 1.35rem; margin: 4px 0 6px; line-height: 1.35; }
+  .work .meta { font-size: 0.82rem; color: var(--muted); margin-bottom: 12px; display: flex; flex-wrap: wrap; gap: 6px 14px; }
+  .work .meta b { color: var(--text); font-weight: 600; }
+  .work p { color: var(--muted); font-size: 0.95rem; }
+  .work p + p { margin-top: 8px; }
+  .work ul { padding-left: 1.2em; color: var(--muted); font-size: 0.93rem; margin-top: 10px; }
+  .work li + li { margin-top: 4px; }
+  .work li b { color: var(--text); font-weight: 600; }
+  .work .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .work .stack span { font-size: 0.76rem; border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px; color: var(--muted); background: var(--bg-2); }
+  .work .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .fit {
+    margin-top: 14px; padding: 10px 14px; border-radius: 10px; font-size: 0.88rem;
+    background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--text);
+    border-left: 3px solid var(--accent);
+  }
+  .fit b { color: var(--accent); }
+
+  .minis { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+  /* tables */
+  table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.04em; }
+  td:first-child { white-space: nowrap; font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+
+  /* process */
+  .steps { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); counter-reset: s; }
+  .step { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; position: relative; }
+  .step::before {
+    counter-increment: s; content: counter(s, decimal-leading-zero);
+    font-size: 0.78rem; font-weight: 800; color: var(--accent); letter-spacing: 0.1em;
+  }
+  .step h3 { font-size: 1rem; margin: 2px 0 6px; }
+  .step p { color: var(--muted); font-size: 0.9rem; }
+
+  /* timeline */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+  .tl { position: relative; padding-bottom: 22px; }
+  .tl::before {
+    content: ""; position: absolute; left: -25px; top: 9px; width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 0 4px var(--bg);
+  }
+  .tl time { font-size: 0.8rem; font-weight: 700; color: var(--accent); letter-spacing: 0.06em; }
+  .tl h3 { font-size: 1rem; margin: 2px 0 4px; }
+  .tl p { color: var(--muted); font-size: 0.93rem; }
+
+  footer { padding: 40px 0 56px; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--line); }
+  footer .links { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 12px; }
+  .note { font-size: 0.82rem; color: var(--muted); margin-top: 18px; }
+
+  @media (max-width: 760px) {
+    section { padding: 48px 0; }
+    .hero { padding: 56px 0 44px; }
+    .work { grid-template-columns: 1fr; padding: 20px; gap: 18px; }
+    .work.flip .media { order: 0; }
+    nav ul { gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">開発実績<span>ポートフォリオ</span></a>
+    <ul>
+      <li><a href="#fit">強み</a></li>
+      <li><a href="#works">実績</a></li>
+      <li><a href="#stack">技術</a></li>
+      <li><a href="#process">進め方</a></li>
+      <li><a href="#proposal">ご提案</a></li>
+      <li><a href="#timeline">経歴</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Portfolio</span>
+    <h1>EC サイトも、社内システムも。<br><em>企画から運用まで、一人で形にします。</em></h1>
+    <p class="sub">
+      直近 1 年半で、越境 EC サイト・FC 本部の業務システム・営業組織の代理店管理・会員アプリ・3D 内見・AI 肌診断など
+      9 件のプロダクトを、要件整理から設計・実装・デプロイ・運用まで単独で担当してきました。
+      AI 開発ツールを本格活用し、少人数・短期間で「実際に使われるシステム」を届けることを得意としています。
+    </p>
+    <div class="tags">
+      <span class="tag">EC / 決済（Stripe）</span>
+      <span class="tag">店舗・売上・顧客管理</span>
+      <span class="tag">会員管理 / CRM</span>
+      <span class="tag">LINE 連携</span>
+      <span class="tag">AI・画像解析</span>
+      <span class="tag">3D / WebGL</span>
+      <span class="tag">クラウド運用</span>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="#works">実績を見る</a>
+      <a class="btn" href="#proposal">アパレル事業向けのご提案</a>
+      <a class="btn" href="https://github.com/ken1055" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>9 件</b><span>単独で設計〜公開まで担当した<br>プロダクト</span></div>
+      <div class="stat"><b>800+</b><span>コミット数（全プロジェクト合計）</span></div>
+      <div class="stat"><b>約 9.5 万行</b><span>自作コード量（フロント・サーバー・<br>DB・ツール含む）</span></div>
+      <div class="stat"><b>7 種</b><span>デプロイ経験のあるクラウド基盤<br>（Vercel / Railway / Render / Cloudflare 他）</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="fit">
+  <div class="wrap">
+    <span class="eyebrow">Strengths</span>
+    <h2>アパレル事業の EC・業務システムに直結する経験</h2>
+    <p class="lead">
+      「商品を売る仕組み」と「売上・顧客・店舗を管理する仕組み」の両方を、ゼロから本番運用まで構築した実績があります。
+    </p>
+    <div class="grid">
+      <div class="card">
+        <h3><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 6h18l-2 12H5zM8 10v4M16 10v4"/></svg></span>EC・オンライン決済</h3>
+        <ul>
+          <li>Stripe Checkout による購入導線（商品選択 → 入力 → 決済 → 完了 → メール）</li>
+          <li>Webhook 署名検証・決済結果の二重確認など、不正アクセス対策</li>
+          <li>3 言語・2 通貨の多言語対応、スマホ最適化、法務ページ一式</li>
+        </ul>
+        <div class="ref">→ Get Japan eSIM</div>
+      </div>
+      <div class="card">
+        <h3><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 14h3"/></svg></span>店舗・売上・顧客管理</h3>
+        <ul>
+          <li>複数店舗の月次売上集計、顧客台帳、取引履歴</li>
+          <li>店舗別の料率設定 → 自動計算 → 請求書 PDF 一括発行</li>
+          <li>月次・年次レポート、CSV エクスポート、権限管理</li>
+        </ul>
+        <div class="ref">→ FC 店舗管理システム / 代理店管理システム</div>
+      </div>
+      <div class="card">
+        <h3><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>会員・CRM・LINE</h3>
+        <ul>
+          <li>登録 → 本人確認 → 承認 → 会費 → 有効化の会員ライフサイクル</li>
+          <li>バーコード会員証、通知、一括メール、管理者チャット</li>
+          <li>LINE Messaging API の Webhook 受信・自動応答</li>
+        </ul>
+        <div class="ref">→ Truss 会員アプリ / LINE Bot</div>
+      </div>
+      <div class="card">
+        <h3><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg></span>集客・販促・計測</h3>
+        <ul>
+          <li>AI エージェントによる SNS 動画企画・台本の自動生成</li>
+          <li>GA4・自前ビーコンでの流入元別の閲覧計測、QR・OGP 配信</li>
+          <li>画像解析 AI によるパーソナライズ提案（肌診断 → 商品提案）</li>
+        </ul>
+        <div class="ref">→ TikTok 企画 AI / VR 内見 / AIMY</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="works">
+  <div class="wrap">
+    <span class="eyebrow">Works</span>
+    <h2>主な実績</h2>
+    <p class="lead">いずれも企画・設計・実装・デプロイ・運用ドキュメントまで単独で担当。数値はすべて Git の履歴とソースコードに基づきます。</p>
+
+    <!-- 1. eSIM EC -->
+    <article class="work">
+      <div class="media">
+        <img src="assets/esim.jpg" alt="Get Japan eSIM のトップページ" loading="lazy">
+        <img src="assets/esim-checkout.jpg" alt="Get Japan eSIM の購入画面（プラン確認と入力フォーム）" loading="lazy">
+      </div>
+      <div>
+        <div class="kind">EC サイト / 越境・多言語</div>
+        <h3>Get Japan eSIM — 訪日旅行者向け eSIM 販売サイト</h3>
+        <div class="meta"><span><b>期間</b> 2026.03 〜 2026.06</span><span><b>規模</b> 204 コミット・約 8,100 行</span><span><b>体制</b> 単独</span></div>
+        <p>海外からの旅行者が日本到着前にデータ通信プランを購入し、メールで届く QR コードで即日開通できる EC サイト。
+        プラン比較から決済、購入後のマイページまでを一貫して設計・実装しました。</p>
+        <ul>
+          <li><b>商品と決済:</b> 全国・多国間の 2 カテゴリ × 3 プラン。Stripe Checkout で決済し、Webhook で購入確定を受信。署名検証と完了画面での決済再確認で、URL 直打ちによるなりすましを防止</li>
+          <li><b>多言語・多通貨:</b> 英語・ドイツ語・中国語の 3 言語、USD / EUR の 2 通貨を切替。100 箇所以上の文言を辞書管理</li>
+          <li><b>購入後体験:</b> メール認証付きの「My eSIMs」ポータルで QR を再発行。利用規約・返金・プライバシー・法的表記ページを整備</li>
+          <li><b>運用コスト設計:</b> Composer や SDK に依存しない PHP で Stripe API を直接呼び出し、月額数百円のレンタルサーバーでも動作。鍵未設定時はモック決済で先行開発できる仕組み</li>
+          <li><b>品質:</b> スマホ表示の崩れを 1 件ずつ潰し込み、Playwright で画面確認。コミット履歴に改善の経緯を残す運用</li>
+        </ul>
+        <div class="stack"><span>HTML / CSS / JavaScript</span><span>PHP</span><span>Stripe Checkout / Webhook</span><span>i18n</span><span>Playwright</span><span>レンタルサーバー</span></div>
+        <div class="fit"><b>アパレル EC への応用:</b> 商品カタログ・カート・決済・購入後メール・会員ページという EC の基本導線を、決済事業者連携まで含めて一式構築した経験です。</div>
+        <div class="links"><a class="btn small" href="https://github.com/ken1055/eSIM" target="_blank" rel="noopener">ソースコード</a></div>
+      </div>
+    </article>
+
+    <!-- 2. FC management -->
+    <article class="work flip">
+      <div class="media">
+        <div class="ph">
+          <div>
+            <b>FC 店舗管理システム</b>
+            40 以上の画面・12 テーブル・8 ルート群
+            <div class="kv"><span>店舗</span><span>売上</span><span>顧客</span><span>取引履歴</span><span>ロイヤリティ</span><span>請求書 PDF</span><span>レポート</span><span>グループ</span><span>資料配布</span><span>権限</span></div>
+            <div class="mini">ログインが必要な業務システムのため、画面はお打ち合わせ時にデモでご覧いただけます。</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="kind">業務システム / 本部 × 多店舗</div>
+        <h3>FC 店舗管理システム — 売上・顧客・ロイヤリティ・請求書を一元管理</h3>
+        <div class="meta"><span><b>期間</b> 2025.07 〜 2025.10</span><span><b>規模</b> 320 コミット・約 12,000 行</span><span><b>体制</b> 単独</span></div>
+        <p>フランチャイズ本部が加盟店舗の売上と顧客を一元管理し、毎月のロイヤリティ計算と請求書発行を自動化する Web システム。
+        紙と Excel で行っていた月次業務を、店舗側の入力から本部側の請求までオンラインで完結させました。</p>
+        <ul>
+          <li><b>店舗・売上・顧客:</b> 店舗プロフィール、月次売上入力、売上履歴のフィルタ、顧客台帳と来店取引の紐付け（売上と顧客の連携設計書を作成）</li>
+          <li><b>ロイヤリティ自動計算:</b> 店舗ごとに料率と適用開始日を設定し、月次売上から自動算出。月末日の境界バグなど実運用で見つかった問題も修正</li>
+          <li><b>請求書 PDF:</b> 日本語フォントを埋め込んだ PDF を生成し、一括発行・閲覧・ダウンロード。月次・年次の売上とロイヤリティのレポート画面</li>
+          <li><b>基盤と移行:</b> SQLite で素早く立ち上げ、本番は Vercel + Supabase（PostgreSQL、行レベルセキュリティ）へ全ルートを移行。セッション永続化やレンタルサーバーの MySQL への移行手順も整備</li>
+          <li><b>引き継ぎ:</b> デプロイ・環境変数・DB エクスポート・セッション改善など 16 本の運用ドキュメントを同梱</li>
+        </ul>
+        <div class="stack"><span>Node.js / Express</span><span>EJS + Bootstrap 5</span><span>PostgreSQL / Supabase</span><span>PDFKit</span><span>Nodemailer</span><span>Vercel / Railway</span></div>
+        <div class="fit"><b>アパレル社内システムへの応用:</b> 店舗別売上の集計、顧客台帳、料率や条件に基づく自動計算、帳票 PDF、権限付き管理画面は、直営・FC・卸いずれの業態にも転用できます。</div>
+        <div class="links"><a class="btn small" href="https://github.com/ken1055/FC_management" target="_blank" rel="noopener">ソースコード</a></div>
+      </div>
+    </article>
+
+    <!-- 3. Agency management -->
+    <article class="work">
+      <div class="media">
+        <div class="ph">
+          <div>
+            <b>代理店管理システム</b>
+            20 以上の画面・7 ルート群
+            <div class="kv"><span>代理店登録</span><span>プロフィール</span><span>取扱商品</span><span>月次売上</span><span>グループ</span><span>資料配布</span><span>メール通知</span><span>公式 LINE 誘導</span><span>管理者昇格</span></div>
+            <div class="mini">営業組織向けの社内システム。FC 店舗管理システムの原型になりました。</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="kind">業務システム / 営業組織</div>
+        <h3>代理店管理システム — 営業代理店の登録・売上・資料共有</h3>
+        <div class="meta"><span><b>期間</b> 2025.07 〜 2025.09</span><span><b>規模</b> 107 コミット・約 7,600 行</span><span><b>体制</b> 単独</span></div>
+        <p>多数の営業代理店を抱える企業向けに、代理店の登録・プロフィール・取扱商品の管理、月次売上の入力と分析、商品資料の配布を行う社内システム。
+        代理店側は自分の情報と売上を入力し、本部側は一覧・グループ・分析を行う 2 つの画面系統を持ちます。</p>
+        <ul>
+          <li><b>代理店ポータル:</b> 自己登録・プロフィール作成・取扱商品の登録・売上入力・資料ダウンロード。昇格パスワードによる管理者権限への切替</li>
+          <li><b>本部管理:</b> 代理店一覧・詳細・削除、グループ編成、売上の代理店別一覧、資料アップロード、管理者アカウント管理</li>
+          <li><b>通知と導線:</b> 登録・更新時のメール通知（SMTP）、公式 LINE への誘導ボタンを設定画面から差し替え可能</li>
+          <li><b>セキュリティ:</b> パスワードハッシュ、セッション管理、レート制限、CSP ヘッダー、入力バリデーション</li>
+          <li><b>運用:</b> Railway / Vercel へのデプロイ手順、PostgreSQL への永続化、メール設定手順を文書化</li>
+        </ul>
+        <div class="stack"><span>Node.js / Express</span><span>EJS + Bootstrap 5</span><span>PostgreSQL / SQLite</span><span>Nodemailer</span><span>Railway / Vercel</span></div>
+        <div class="fit"><b>アパレル社内システムへの応用:</b> 取引先・スタッフ・店舗といった「相手ごとのポータル」と「本部の管理画面」を分けた構成は、卸先や販売員の管理にそのまま使えます。</div>
+        <div class="links"><a class="btn small" href="https://github.com/ken1055/agent_management" target="_blank" rel="noopener">ソースコード</a></div>
+      </div>
+    </article>
+
+    <!-- 4. Truss -->
+    <article class="work flip">
+      <div class="media">
+        <div class="ph">
+          <div>
+            <b>Truss 会員アプリ</b>
+            React 109 コンポーネント・12 テーブル・日英 2 言語
+            <div class="kv"><span>メール認証</span><span>承認フロー</span><span>会費</span><span>会員証バーコード</span><span>イベント</span><span>掲示板</span><span>ギャラリー</span><span>チャット</span><span>通知</span><span>一括メール</span></div>
+            <div class="mini">スマホにインストールできる PWA。管理者用ダッシュボードを同梱。</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="kind">会員管理 / コミュニティアプリ</div>
+        <h3>Truss — 国際交流サークルの会員管理・イベント運営アプリ</h3>
+        <div class="meta"><span><b>期間</b> 2025.09 〜 2026.03（2 世代）</span><span><b>規模</b> 119 コミット・約 43,000 行</span><span><b>体制</b> 単独（デザインは Figma を起点）</span></div>
+        <p>大学の国際交流サークル向けに、会員登録から承認・会費・イベント参加・掲示板までを 1 つにまとめた会員アプリ。
+        第 1 世代（Next.js）で言語・時間帯・性別比を考慮したグループマッチングを実装し、第 2 世代では Figma デザインを起点に PWA として全面刷新しました。</p>
+        <ul>
+          <li><b>会員ライフサイクル:</b> メール認証 → 初期登録 → 承認待ち → 限定アクセス → プロフィール完成 → 会費支払い → 正会員、の 9 段階を状態として管理。学生証の再提出依頼、年度更新と継続会員の扱いにも対応</li>
+          <li><b>管理ダッシュボード:</b> 入会承認、会員検索・詳細・ブロック、イベント作成と参加者管理、写真ギャラリーの承認、会員とのチャット、通知配信、一括メール</li>
+          <li><b>会員体験:</b> CODE128 のバーコード会員証、イベントへの参加・いいね、掲示板と返信、Realtime による即時反映、日本語 / 英語切替</li>
+          <li><b>認証と基盤:</b> Supabase Auth（メール + Google OAuth）、行レベルセキュリティ、ストレージ、6 本のマイグレーション。開発環境から本番 Supabase への移行ガイドを作成</li>
+        </ul>
+        <div class="stack"><span>React / TypeScript</span><span>Vite + PWA</span><span>Tailwind / Radix UI</span><span>Supabase（Auth・DB・Storage・Realtime）</span><span>Next.js（第 1 世代）</span><span>Vercel</span></div>
+        <div class="fit"><b>アパレル事業への応用:</b> 会員ランク・承認・会費・会員証・通知・一括メールは、ブランド会員制度やスタッフ向けアプリの構成要素そのものです。</div>
+        <div class="links"><a class="btn small" href="https://github.com/ken1055/Truss_app" target="_blank" rel="noopener">ソースコード（第 2 世代）</a><a class="btn small" href="https://github.com/ken1055/Truss" target="_blank" rel="noopener">第 1 世代</a></div>
+      </div>
+    </article>
+
+    <!-- 5. VR naiken -->
+    <article class="work">
+      <div class="media">
+        <img src="assets/vr-naiken.png" alt="3D 内見ビューア" loading="lazy">
+      </div>
+      <div>
+        <div class="kind">3D / 不動産テック / プラットフォーム</div>
+        <h3>VR 内見ビューア — 本物の部屋をブラウザだけで歩ける内見体験</h3>
+        <div class="meta"><span><b>期間</b> 2026.06 〜 運用中</span><span><b>規模</b> 50 コミット・約 7,200 行</span><span><b>体制</b> 単独</span></div>
+        <p>3D Gaussian Splatting で撮影した実物件を、アプリ不要で歩き回れる Web ビューア。撮影データの前処理から配信、物件ごとの固有 URL と QR の発行、流入元別の閲覧計測まで、不動産会社がエンジニア無しで運用できる形に仕上げました。</p>
+        <ul>
+          <li><b>体験:</b> 床に目線を固定したウォークモード、自動生成コリジョン、テレポート、360 度写真との連携、スマホのジョイスティック操作</li>
+          <li><b>性能:</b> 配信データを 59MB → 13.5MB（-77%）に圧縮し、画質差を数値で検証して採用</li>
+          <li><b>運用基盤:</b> Cloudflare Workers + D1 で物件レジストリ・OGP 注入・QR 生成・閲覧イベント集計。公開準備は「フォルダを選んで実行」の 1 ボタン（116 万点のデータで 43 秒）</li>
+        </ul>
+        <div class="stack"><span>WebGL2 / PlayCanvas</span><span>Vanilla JavaScript</span><span>Python / NumPy</span><span>Cloudflare Workers + D1</span><span>Google Cloud Storage</span><span>GA4</span></div>
+        <div class="fit"><b>アパレル事業への応用:</b> 店舗やショールームの 3D 公開、QR からの来店計測など、オンラインとリアル店舗をつなぐ施策に転用できます。</div>
+        <div class="links"><a class="btn small primary" href="https://ken1055.github.io/VR_naiken/" target="_blank" rel="noopener">デモを開く</a><a class="btn small" href="vr-naiken.html">詳細ページ</a><a class="btn small" href="https://github.com/ken1055/VR_naiken" target="_blank" rel="noopener">ソースコード</a></div>
+      </div>
+    </article>
+
+    <!-- 6. AIMY -->
+    <article class="work flip">
+      <div class="media">
+        <img src="assets/aimy.jpg" alt="AIMY 肌診断のトップページ" loading="lazy">
+      </div>
+      <div>
+        <div class="kind">AI / 画像解析 / 美容</div>
+        <h3>AIMY — AI 肌診断とパーソナライズ提案</h3>
+        <div class="meta"><span><b>期間</b> 2026.06</span><span><b>規模</b> 約 13,800 行（解析 7 種）</span><span><b>体制</b> 単独</span></div>
+        <p>スマホで撮った顔写真から、シミ・シワ・毛穴・キメ・赤みを解析して可視化し、将来の肌変化シミュレーションと化粧品・施術の提案レポートを生成する Web アプリ。
+        美容医療の高額な診断機器に近い見せ方をブラウザだけで実現することを狙いました。</p>
+        <ul>
+          <li><b>画像解析:</b> MediaPipe の顔ランドマークで肌領域を抽出し、OpenCV と scikit-image でシミ（Hessian ブロブ検出・3 段階分類）、毛穴（モルフォロジー）、シワ、キメ、赤み、エイジングの 7 つの解析 API を実装</li>
+          <li><b>見せ方:</b> 業務用診断機器に近いトーンマッピング表現を独自に再現。検出マーカーを描くのではなく自然に強調する方式</li>
+          <li><b>生成 AI:</b> Gemini API で悩み別のレポート文と化粧品レコメンドを生成。投資家向けピッチページも同梱</li>
+          <li><b>基盤:</b> Flask + gunicorn でクラウドにデプロイ可能、ローカル開発サーバーも同梱</li>
+        </ul>
+        <div class="stack"><span>Python / Flask</span><span>OpenCV</span><span>MediaPipe</span><span>scikit-image</span><span>Gemini API</span><span>Render / Railway</span></div>
+        <div class="fit"><b>アパレル事業への応用:</b> 写真からの診断 → 商品提案という流れは、パーソナルカラー診断や体型に合わせたコーディネート提案に置き換えられます。</div>
+        <div class="links"><a class="btn small" href="https://github.com/ken1055/AIMY" target="_blank" rel="noopener">ソースコード</a></div>
+      </div>
+    </article>
+
+    <!-- 7. TikTok agent -->
+    <article class="work">
+      <div class="media">
+        <div class="ph">
+          <div>
+            <b>TikTok 企画 AI エージェント</b>
+            5 つの AI が分業して企画書と台本を生成
+            <div class="kv"><span>調査</span><span>→ 戦略</span><span>→ 企画 8〜10 本</span><span>→ 採点レビュー</span><span>→ 台本</span></div>
+            <div class="mini">クライアント情報を入力すると、トレンド調査からシーン別台本までを数分で出力。ログイン付き Web 画面と CLI の 2 形態。</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="kind">生成 AI / SNS マーケティング</div>
+        <h3>TikTok 企画 AI エージェント — SNS 運用代行のための企画・台本自動生成</h3>
+        <div class="meta"><span><b>期間</b> 2026.05</span><span><b>規模</b> 約 2,800 行</span><span><b>体制</b> 単独</span></div>
+        <p>SNS 運用代行の現場で時間がかかる「企画出し」を自動化するツール。会社名・業界・ターゲット・目的・ブランドトーンを入力すると、
+        役割の異なる 5 つの AI エージェントが順に働き、企画書と撮影用台本を出力します。</p>
+        <ul>
+          <li><b>エージェント構成:</b> 調査（人気フォーマット・トレンド・フック・競合）→ 戦略（コンテンツの柱・ペルソナ）→ 企画（8〜10 本、冒頭フックと構成）→ レビュー（バズ可能性を 10 点満点で採点し改善提案、基準未満は再生成）→ 台本（タイムコード・ナレーション・映像指示・テロップ）</li>
+          <li><b>実装:</b> Claude API の Tool Use で各エージェントの出力を構造化し、型安全に受け渡し。進捗をリアルタイム表示</li>
+          <li><b>提供形態:</b> ログイン付きの Next.js Web 画面と、ターミナルから使える CLI</li>
+        </ul>
+        <div class="stack"><span>TypeScript</span><span>Claude API（Tool Use）</span><span>Next.js</span><span>Render</span></div>
+        <div class="fit"><b>アパレル事業への応用:</b> 新作・セール・スタッフコーデなど、ブランドトーンに沿った SNS 企画と台本を継続的に量産できます。</div>
+        <div class="links"><a class="btn small" href="https://github.com/ken1055/TikTok_agent" target="_blank" rel="noopener">ソースコード</a></div>
+      </div>
+    </article>
+
+    <h3 style="margin:28px 0 12px;font-size:1.1rem;">その他の制作物</h3>
+    <div class="minis">
+      <div class="card">
+        <h3>LINE Messaging API Bot</h3>
+        <p>Webhook の署名検証、テキスト・画像・スタンプ・フォロー・グループ参加などのイベント処理、キーワード自動返信、メッセージ送信 API を Next.js で実装。公式 LINE を使った顧客対応の土台。</p>
+        <div class="ref">2025.06 / Next.js・LINE Bot SDK</div>
+      </div>
+      <div class="card">
+        <h3>本スキャナー（在庫照合デスクトップアプリ）</h3>
+        <p>書棚の写真を Google Cloud Vision で文字認識し、Excel / CSV の台帳と照合して一覧表示するデスクトップアプリ。画像から台帳を引き当てる、棚卸し型の業務ツール。</p>
+        <div class="ref">2025.06 / Python・PyQt・Cloud Vision・pandas</div>
+      </div>
+      <div class="card">
+        <h3>物件一覧スプレッドシート連携・QR 発行</h3>
+        <p>VR 内見ビューアの運用で、Google スプレッドシートから物件 URL を自動生成する Apps Script、店頭ポップ用 QR の SVG 生成、SNS・ポータル・QR・メール別の閲覧集計を実装。</p>
+        <div class="ref">2026.10 / Apps Script・Cloudflare Workers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <span class="eyebrow">Tech Stack</span>
+    <h2>技術スタック</h2>
+    <p class="lead">案件の規模・予算・運用体制に合わせて選定します。既製の SaaS を使うべき場面では、無理に自作しません。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>領域</th><th>技術</th><th>使用した案件</th></tr></thead>
+        <tbody>
+          <tr><td>フロントエンド</td><td>React / Next.js / TypeScript / Tailwind CSS / Vite（PWA）/ EJS / HTML・CSS・JavaScript</td><td>Truss、TikTok 企画 AI、LINE Bot、FC・代理店管理、eSIM、VR 内見</td></tr>
+          <tr><td>バックエンド</td><td>Node.js（Express）/ PHP / Python（Flask）/ Cloudflare Workers / Next.js API Routes</td><td>FC・代理店管理、eSIM、AIMY、VR 内見、TikTok 企画 AI</td></tr>
+          <tr><td>データベース</td><td>PostgreSQL（Supabase、Railway）/ SQLite / Cloudflare D1 / MySQL 移行 / 行レベルセキュリティ設計</td><td>FC・代理店管理、Truss、VR 内見</td></tr>
+          <tr><td>決済・外部連携</td><td>Stripe Checkout・Webhook / LINE Messaging API / SMTP メール / Google OAuth / Google スプレッドシート（Apps Script）</td><td>eSIM、LINE Bot、FC・代理店管理、Truss、VR 内見</td></tr>
+          <tr><td>AI・画像</td><td>Claude API（Tool Use）/ Gemini API / Google Cloud Vision / OpenCV / MediaPipe / scikit-image / WebGL・3D Gaussian Splatting</td><td>TikTok 企画 AI、AIMY、本スキャナー、VR 内見</td></tr>
+          <tr><td>インフラ・運用</td><td>Vercel / Railway / Render / Cloudflare / Google Cloud Storage / GitHub Pages / レンタルサーバー（Xserver 等）/ GA4</td><td>全案件</td></tr>
+          <tr><td>帳票・ドキュメント</td><td>PDF 生成（日本語フォント埋め込み）/ CSV エクスポート / 運用手順書・設計書の整備</td><td>FC 管理（16 本の運用ドキュメント）、VR 内見</td></tr>
+          <tr><td>開発体制</td><td>Git による履歴管理 / Playwright による画面確認 / AI 開発ツール（Claude Code 等）を活用した高速開発</td><td>全案件</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <span class="eyebrow">How I Work</span>
+    <h2>進め方と、大切にしていること</h2>
+    <p class="lead">「動くものを早く見せて、使いながら直す」を基本に、引き継げる形で納めます。</p>
+    <div class="steps">
+      <div class="step"><h3>業務のヒアリング</h3><p>今の業務フロー（Excel・紙・口頭）を確認し、どこを自動化すると効果が大きいかを一緒に決めます。</p></div>
+      <div class="step"><h3>画面と設計の合意</h3><p>画面イメージとデータ構造を先に共有。FC 管理では「売上と顧客の連携」を設計書にしてから実装しました。</p></div>
+      <div class="step"><h3>短いサイクルで実装</h3><p>AI 開発ツールを活用し、数日単位で動く画面をお見せします。eSIM の購入導線は 2 日で決済まで通しました。</p></div>
+      <div class="step"><h3>本番公開と計測</h3><p>クラウドへのデプロイ、決済・メールの本番切替、アクセス計測まで対応。障害時は原因と再発防止策を文書化します。</p></div>
+      <div class="step"><h3>引き継ぎ・運用</h3><p>デプロイ手順・環境変数・DB のバックアップ方法などを手順書として納品。社内でも外部でも引き継げる状態にします。</p></div>
+    </div>
+    <div class="grid" style="margin-top:20px">
+      <div class="card">
+        <h3>少人数でも止まらない体制</h3>
+        <p>9 件すべてを一人で設計から運用まで回してきました。AI 開発ツールを本格活用することで、従来なら数名のチームが必要な規模を、短期間・低コストで形にできます。</p>
+      </div>
+      <div class="card">
+        <h3>数字で判断する</h3>
+        <p>配信データの圧縮では画質差を数値で比較し、コリジョンの不具合では到達面積を測って回帰テスト化。感覚ではなく計測で決めます。</p>
+      </div>
+      <div class="card">
+        <h3>業務とお金の流れを理解する</h3>
+        <p>ロイヤリティ計算、代理店の売上、会費と年度更新、越境 EC の決済と返金。システムの裏にある業務とお金の流れを理解したうえで設計します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proposal">
+  <div class="wrap">
+    <span class="eyebrow">Proposal</span>
+    <h2>アパレル事業向けに、ご提案できること</h2>
+    <p class="lead">これまでの実績の部品を組み合わせると、次のような構成を短期間で立ち上げられます。詳細は業務内容を伺ったうえでご提案します。</p>
+    <div class="grid">
+      <div class="card">
+        <h3><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 6h18l-2 12H5zM8 10v4M16 10v4"/></svg></span>EC サイト</h3>
+        <ul>
+          <li>商品カタログ（カラー・サイズ別の在庫）、カート、Stripe 等による決済</li>
+          <li>会員登録・マイページ・購入履歴・お気に入り</li>
+          <li>LINE 連携での再入荷・セール通知、クーポン</li>
+          <li>多言語・多通貨対応による越境販売（実績あり）</li>
+          <li>Shopify 等の既製サービスとの使い分けもご提案可能</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 14h3"/></svg></span>社内業務システム</h3>
+        <ul>
+          <li>店舗別・チャネル別の売上集計と日次・月次レポート</li>
+          <li>商品・在庫・発注・入荷の管理、バーコード対応</li>
+          <li>顧客台帳と購買履歴、スタッフ別実績</li>
+          <li>取引先・卸先ごとのポータルと請求書 PDF の自動発行（実績あり）</li>
+          <li>権限管理、CSV 出力、既存 Excel からの移行</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg></span>集客・販促・AI 活用</h3>
+        <ul>
+          <li>SNS 投稿企画・台本の AI 生成（実績あり）</li>
+          <li>写真からのパーソナライズ提案（コーデ・カラー診断）</li>
+          <li>QR・OGP・GA4 による店舗とオンラインの流入計測（実績あり）</li>
+          <li>店舗・ショールームの 3D 公開（実績あり）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <span class="eyebrow">Timeline</span>
+    <h2>開発の歩み</h2>
+    <div class="timeline">
+      <div class="tl"><time>2025.06</time><h3>LINE Bot / 本スキャナー</h3><p>LINE Messaging API と Google Cloud Vision を使った小規模ツールを制作。外部 API 連携と業務ツール開発の起点。</p></div>
+      <div class="tl"><time>2025.07 〜 09</time><h3>代理店管理システム</h3><p>営業組織向けの社内システムを 3 か月・107 コミットで構築し、Railway / Vercel で運用。</p></div>
+      <div class="tl"><time>2025.07 〜 10</time><h3>FC 店舗管理システム</h3><p>代理店管理を発展させ、顧客管理・ロイヤリティ自動計算・請求書 PDF を追加。320 コミット、Supabase へ全面移行。</p></div>
+      <div class="tl"><time>2025.09 〜 2026.03</time><h3>Truss 会員アプリ（2 世代）</h3><p>Next.js 版でマッチング機能を実装後、Figma デザインを起点に React PWA として全面刷新。管理ダッシュボードと本番移行まで。</p></div>
+      <div class="tl"><time>2026.03 〜 06</time><h3>Get Japan eSIM（EC）</h3><p>越境 EC サイトを 204 コミットで構築。多言語・多通貨、Stripe 決済、購入後ポータルまで。</p></div>
+      <div class="tl"><time>2026.05 〜 06</time><h3>TikTok 企画 AI / AIMY 肌診断</h3><p>Claude API のマルチエージェントと、OpenCV・MediaPipe・Gemini による画像解析プロダクトを相次いで制作。</p></div>
+      <div class="tl"><time>2026.06 〜 現在</time><h3>VR 内見ビューア</h3><p>3D Gaussian Splatting の内見プラットフォームを運用中。Cloudflare Workers による物件レジストリと計測基盤を追加。</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="https://github.com/ken1055" target="_blank" rel="noopener">GitHub: ken1055</a>
+      <a href="vr-naiken.html">VR 内見ビューア 詳細</a>
+      <a href="https://ken1055.github.io/VR_naiken/" target="_blank" rel="noopener">VR 内見ビューア デモ</a>
+    </div>
+    <!-- TODO: お名前・メールアドレス・LINE などの連絡先をここに追記してください -->
+    <p>お問い合わせは GitHub プロフィール記載の連絡先までお願いします。</p>
+    <p class="note">掲載内容はすべて公開リポジトリの Git 履歴とソースコードに基づいています。業務システムはログインが必要なため、画面は打ち合わせ時にデモでご覧いただけます。</p>
+  </div>
+</footer>
+
+</body>
+</html>
