@@ -156,6 +156,8 @@
   .work .media .ph .mini { font-size: 0.8rem; opacity: 0.8; margin-top: 8px; line-height: 1.5; }
   .work .media .ph .kv { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 10px; }
   .work .media .ph .kv span { font-size: 0.72rem; border: 1px solid var(--line); border-radius: 999px; padding: 2px 8px; }
+  .work .media .shots2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .work .media .cap { font-size: 0.75rem; color: var(--muted); text-align: right; }
   .work .kind { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; color: var(--accent-3); }
   .work h3 { font-size: 1.35rem; margin: 4px 0 6px; line-height: 1.35; }
   .work .meta { font-size: 0.82rem; color: var(--muted); margin-bottom: 12px; display: flex; flex-wrap: wrap; gap: 6px 14px; }
@@ -384,14 +386,13 @@
     <!-- 3. Agency management -->
     <article class="work">
       <div class="media">
-        <div class="ph">
-          <div>
-            <b>代理店管理システム</b>
-            20 以上の画面・7 ルート群
-            <div class="kv"><span>代理店登録</span><span>プロフィール</span><span>取扱商品</span><span>月次売上</span><span>グループ</span><span>資料配布</span><span>メール通知</span><span>公式 LINE 誘導</span><span>管理者昇格</span></div>
-            <div class="mini">営業組織向けの社内システム。FC 店舗管理システムの原型になりました。</div>
-          </div>
+        <img src="assets/agency-sales.jpg" alt="代理店管理システム 売上管理画面（代理店ごとの売上件数と合計）" loading="lazy">
+        <img src="assets/agency-sales-chart.jpg" alt="代理店管理システム 代理店別の月間売上推移グラフ" loading="lazy">
+        <div class="shots2">
+          <img src="assets/agency-dashboard.jpg" alt="代理店管理システム 管理者ダッシュボード" loading="lazy">
+          <img src="assets/agency-list.jpg" alt="代理店管理システム 代理店一覧" loading="lazy">
         </div>
+        <div class="cap">画面はデモデータで表示（実データは掲載していません）</div>
       </div>
       <div>
         <div class="kind">業務システム / 営業組織</div>
