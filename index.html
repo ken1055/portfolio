@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>開発実績ポートフォリオ — EC・業務システム・AI</title>
+<title>竹永 賢 — 開発実績ポートフォリオ</title>
 <meta name="description" content="越境 EC サイト、FC 本部・営業組織の業務システム、会員管理アプリ、3D 内見ビューア、AI エージェントなど 8 件の開発実績。企画・設計・実装・デプロイ・運用まで単独で担当。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="開発実績ポートフォリオ — EC・業務システム・AI">
+<meta property="og:title" content="竹永 賢 — 開発実績ポートフォリオ（EC・業務システム・AI）">
 <meta property="og:description" content="EC サイトから社内業務システム、AI プロダクトまで。企画から運用まで一人で形にした 8 件の実績。">
 <meta property="og:url" content="https://ken1055.github.io/portfolio/">
 <meta property="og:image" content="https://ken1055.github.io/portfolio/assets/esim.jpg">
@@ -119,6 +119,24 @@
   .stat b { display: block; font-size: 1.7rem; line-height: 1.1; color: var(--accent); }
   .stat span { font-size: 0.85rem; color: var(--muted); }
 
+  /* profile */
+  .profile {
+    display: grid; grid-template-columns: 96px 1fr; gap: 22px; align-items: start;
+    background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 26px;
+  }
+  .avatar {
+    width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center;
+    font-size: 2.2rem; font-weight: 800; color: var(--accent-ink);
+    background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 55%, var(--accent-2)));
+  }
+  .profile .name { font-size: 1.5rem; font-weight: 800; line-height: 1.3; }
+  .profile .name small { font-size: 0.85rem; font-weight: 600; color: var(--muted); margin-left: 10px; }
+  .profile .aff { color: var(--muted); font-size: 0.95rem; margin: 2px 0 12px; }
+  .profile .intro { color: var(--text); font-size: 0.97rem; max-width: 760px; }
+  .profile .contact { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; align-items: center; }
+  .profile .contact .lbl { font-size: 0.8rem; color: var(--muted); }
+  @media (max-width: 560px) { .profile { grid-template-columns: 1fr; } .avatar { width: 72px; height: 72px; font-size: 1.7rem; } }
+
   /* cards */
   .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
   .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
@@ -228,6 +246,7 @@
   <div class="wrap">
     <a class="brand" href="#top">開発実績<span>ポートフォリオ</span></a>
     <ul>
+      <li><a href="#profile">プロフィール</a></li>
       <li><a href="#fit">強み</a></li>
       <li><a href="#works">実績</a></li>
       <li><a href="#stack">技術</a></li>
@@ -272,6 +291,31 @@
 </header>
 
 <main>
+
+<section id="profile">
+  <div class="wrap">
+    <span class="eyebrow">Profile</span>
+    <h2>自己紹介</h2>
+    <div class="profile" style="margin-top:16px">
+      <div class="avatar" aria-hidden="true">竹</div>
+      <div>
+        <div class="name">竹永 賢<small>Ken Takenaga</small></div>
+        <div class="aff">京都大学 工学部 情報学科 4 年</div>
+        <p class="intro">
+          在学中から個人開発で、越境 EC サイト、FC 本部や営業組織の業務システム、大学サークルの会員アプリ、不動産向けの 3D 内見ビューアなど
+          8 件のプロダクトを、要件整理から設計・実装・公開・運用まで一人で手がけてきました。
+          決済や請求、会員管理といった「お金と業務の流れ」を理解したうえで設計すること、
+          AI 開発ツールを本格的に取り入れて少人数・短期間でも現場で実際に使われるシステムを届けることを大切にしています。
+        </p>
+        <div class="contact">
+          <span class="lbl">お問い合わせ:</span>
+          <a class="btn small" href="https://github.com/ken1055" target="_blank" rel="noopener">GitHub</a>
+          <!-- LINE の QR を載せる場合: <img src="assets/line-qr.png" alt="LINE QR コード" style="width:96px;height:96px;border-radius:8px;border:1px solid var(--line)"> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="fit">
   <div class="wrap">
@@ -630,8 +674,7 @@
       <a href="vr-naiken.html">VR 内見ビューア 詳細</a>
       <a href="https://ken1055.github.io/VR_naiken/" target="_blank" rel="noopener">VR 内見ビューア デモ</a>
     </div>
-    <!-- TODO: お名前・メールアドレス・LINE などの連絡先をここに追記してください -->
-    <p>お問い合わせは GitHub プロフィール記載の連絡先までお願いします。</p>
+    <p>竹永 賢（京都大学 工学部 情報学科）。お問い合わせは上記プロフィール欄の連絡先、または GitHub からお願いします。</p>
     <p class="note">掲載内容はすべて公開リポジトリの Git 履歴とソースコードに基づいています。業務システムはログインが必要なため、画面は打ち合わせ時にデモでご覧いただけます。</p>
   </div>
 </footer>
